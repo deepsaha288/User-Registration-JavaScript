@@ -1,20 +1,21 @@
 var readlineSync = require('readline-sync');
 class UserRegistration {
+
     User = () => {
         try {
-            let regex = /^[A-Z]{1}[a-z]{2,}$/
-            var userName = readlineSync.question("Enter your last name: ");
-            const pattern = regex.exec(userName);
+            let regex = /^[0-9a-zA-Z]+([._+-][0-9a-zA-Z]+)*@[0-9a-zA-Z]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})*$/
+            //Take input from user and matches with regex pattern 
+            let userEmail = readlineSync.question("Enter your Email id: ");
+            const pattern = regex.exec(userEmail);
             if (pattern) {
                 console.log("Matches");
             }
             else {
-                console.log("not matches");
+                console.log("Not matches");
             }
         } catch (error) {
-            console.log(error);
+            console.log(error); //handle the exception
         }
-
     }
 }
 module.exports = new UserRegistration();
