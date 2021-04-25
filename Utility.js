@@ -3,9 +3,9 @@ class UserRegistration {
 
     User = () => {
         try {
-            let regex = /^(?=.*[0-9])(?=.*[A-Z]).{8,}$/
+            let regex = /^(?=.*[0-9])(?=.*[@#$%]{1})(?=.*[A-Z]).{8,}$/
             //Take input from user and matches with regex pattern 
-            let password = readlineSync.question("Enter your Password atleast 1 mumeric case: ");
+            let password = readlineSync.question("Enter your Password atleast 1 special character: ");
             const pattern = regex.exec(password);
             if (pattern) {
                 console.log("Matches");
