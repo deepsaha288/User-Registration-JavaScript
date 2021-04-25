@@ -3,9 +3,9 @@ class UserRegistration {
 
     User = () => {
         try {
-            let regex = /^[a-zA-Z0-9]{8,}$/
+            let regex = /^(?=.*[A-Z]).{8,}$/
             //Take input from user and matches with regex pattern 
-            let password = readlineSync.question("Enter your Password: ");
+            let password = readlineSync.question("Enter your Password atleast 1 upper case: ");
             const pattern = regex.exec(password);
             if (pattern) {
                 console.log("Matches");

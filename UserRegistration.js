@@ -1,2 +1,2 @@
-const Utility = require('./Utility');
+const Utility = require("./Utility");
 Utility.User();
