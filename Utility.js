@@ -1,16 +1,20 @@
 var readlineSync = require('readline-sync');
 class UserRegistration {
     User = () => {
-        let read = /^[A-Z]{1}[a-z]{2,}$/
-        var userName = readlineSync.question("Enter your first name: ");
-        const result = read.exec(userName);
-        if (result) {
-            console.log("Matches");
+        try {
+            let regex = /^[A-Z]{1}[a-z]{2,}$/
+            var userName = readlineSync.question("Enter your last name: ");
+            const pattern = regex.exec(userName);
+            if (pattern) {
+                console.log("Matches");
+            }
+            else {
+                console.log("not matches");
+            }
+        } catch (error) {
+            console.log(error);
         }
-        else {
-            console.log("not matches");
-        }
-    }
 
+    }
 }
 module.exports = new UserRegistration();
