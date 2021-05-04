@@ -1,27 +1,61 @@
-var readlineSync = require('readline-sync');
+const readlineSync = require('readline-sync');
 class UserRegistration {
     /**
      * regex pattern for username, email, phone number and password
      */
-    REGEX_USERNAME = /^[A-Z]{1}[a-z]{2,}$/
+    REGEX_USER_FIRST_NAME = /^[A-Z]{1}[a-z]{2,}$/
+    REGEX_USER_LAST_NAME = /^[A-Z]{1}[a-z]{2,}$/
     REGEX_EMAIL = /^[0-9a-zA-Z]+([._+-][0-9a-zA-Z]+)*@[0-9a-zA-Z]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})*$/
     REGEX_PHONE_NUMBER = /^[+][9][1][ ][0-9]{10}$/
     REGEX_PASSWORD = /^(?=.*[0-9])(?=.*[@#$%]{1})(?=.*[A-Z]).{8,}$/
 
     /**
+     * 
+     *common mathod for every pattern 
+     */
+    checkValidation = (value) => {
+
+        if (value) {
+
+            console.log("valid ");
+            return true;
+        }
+        else {
+            console.log("invalid")
+            return false;
+        }
+    }
+
+    /**
      * method for entry of user first and last name 
      */
-    nameEntry = () => {
+    nameEntryFirst = (firstName) => {
         try {
-            let firstName = readlineSync.question("Enter your first name: ");
-            let lastName = readlineSync.question("Enter your last name: ");
-            const firstPattern = this.REGEX_USERNAME.exec(firstName);
-            const lastPattern = this.REGEX_USERNAME.exec(lastName);
-            if (firstPattern, lastPattern) {
-                console.log("Matches");
+            // let firstName = readlineSync.question("Enter your first name: ");
+            const firstPattern = this.REGEX_USER_FIRST_NAME.exec(firstName);
+
+            if (firstPattern) {
+                return this.checkValidation(firstPattern)
             }
             else {
-                console.log("Not matches");
+                this.nameEntryFirst();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+
+
+    nameEntryLast = (lastName) => {
+        try {
+            //let lastName = readlineSync.question("Enter your last name: ");
+            const lastPattern = this.REGEX_USER_FIRST_NAME.exec(lastName);
+            if (lastPattern) {
+                return this.checkValidation(lastPattern);
+            }
+            else {
+                this.nameEntryLast();
             }
         } catch (error) {
             console.log(error);
@@ -37,10 +71,10 @@ class UserRegistration {
             let email = readlineSync.question("Enter your Email id: ");
             const emailPattern = this.REGEX_EMAIL.exec(email);
             if (emailPattern) {
-                console.log("Matches");
+                this.checkValidation(emailPattern);
             }
             else {
-                console.log("Not matches");
+                this.userEmail();
             }
         } catch (error) {
             console.log(error);
@@ -48,17 +82,17 @@ class UserRegistration {
     }
 
     /**
-     * method for entry of user phone number
+     * me+thod for entry of user phone number
      */
     userPhoneNumber = () => {
         try {
             let phoneNumber = readlineSync.question("Enter your Phone number: ");
             const phonePattern = this.REGEX_PHONE_NUMBER.exec(phoneNumber);
             if (phonePattern) {
-                console.log("Matches");
+                this.checkValidation(phoneNumber);
             }
             else {
-                console.log("Not matches");
+                this.userPhoneNumber();
             }
         } catch (error) {
             console.log(error);
@@ -73,14 +107,16 @@ class UserRegistration {
             let password = readlineSync.question("Enter your Password: ");
             const passwordPattern = this.REGEX_PASSWORD.exec(password);
             if (passwordPattern) {
-                console.log("Matches");
+                this.checkValidation(password);
             }
             else {
-                console.log("Not matches");
+                this.userPassword();
             }
         } catch (error) {
             console.log(error);
         }
     }
+
 }
+
 module.exports = new UserRegistration();
