@@ -84,12 +84,12 @@ class UserRegistration {
     /**
      * me+thod for entry of user phone number
      */
-    userPhoneNumber = () => {
+    userPhoneNumber = (phoneNumber) => {
         try {
-            let phoneNumber = readlineSync.question("Enter your Phone number: ");
+            //let phoneNumber = readlineSync.question("Enter your Phone number: ");
             const phonePattern = this.REGEX_PHONE_NUMBER.exec(phoneNumber);
             if (phonePattern) {
-                this.checkValidation(phoneNumber);
+                return this.checkValidation(phoneNumber);
             }
             else {
                 this.userPhoneNumber();
