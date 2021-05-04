@@ -4,12 +4,12 @@ const { checkValidation } = require('./Utility')
 const expect = chai.expect
 const Utility = require('./Utility')
 
-describe("test for userPhoneNumber()", () => {
+describe("test for userPassword()", () => {
 
-	it("should return true for  userPhoneNumber", () => {
-		expect(Utility.userPhoneNumber("+91 9916522077")).to.be.true
+	it("should return true for  userPassword", () => {
+		expect(Utility.userPassword(" Deepsaha123#")).to.be.true
 	})
-	it("should return false for  userPhoneNumber", () => {
-		expect(Utility.userPhoneNumber("+919916522077")).to.be.false
+	it("should return false for  userPassword", () => {
+		expect(Utility.userPassword("deepsaha123")).to.be.false
 	})
 })

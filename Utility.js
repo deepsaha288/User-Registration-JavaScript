@@ -102,12 +102,12 @@ class UserRegistration {
     /**
      * method for user entry of password
      */
-    userPassword = () => {
+    userPassword = (password) => {
         try {
-            let password = readlineSync.question("Enter your Password: ");
+            //let password = readlineSync.question("Enter your Password: ");
             const passwordPattern = this.REGEX_PASSWORD.exec(password);
             if (passwordPattern) {
-                this.checkValidation(password);
+                return this.checkValidation(password);
             }
             else {
                 this.userPassword();
