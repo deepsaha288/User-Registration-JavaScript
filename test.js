@@ -2,16 +2,14 @@
 const chai = require('chai')
 const { checkValidation } = require('./Utility')
 const expect = chai.expect
-const Utility =require('./Utility')
+const Utility = require('./Utility')
 
-describe("test for nameEntryFirst()", () => {
+describe("test for nameEntryLast()", () => {
 
-	it("should return true for  nameEntryFirst", ()=> {
-		expect(Utility.nameEntryFirst("Deep")).to.be.true
+	it("should return true for  nameEntryLast", () => {
+		expect(Utility.nameEntryLast("Saha")).to.be.true
 	})
-	it("should return false for  nameEntryFirst", ()=> {
-		expect(Utility.nameEntryFirst("deep")).to.be.false
+	it("should return false for  nameEntryLast", () => {
+		expect(Utility.nameEntryLast("saha")).to.be.false
 	})
 })
-
-
