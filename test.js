@@ -4,12 +4,12 @@ const { checkValidation } = require('./Utility')
 const expect = chai.expect
 const Utility = require('./Utility')
 
-describe("test for nameEntryLast()", () => {
+describe("test for userEmail()", () => {
 
-	it("should return true for  nameEntryLast", () => {
-		expect(Utility.nameEntryLast("Saha")).to.be.true
+	it("should return true for  userEmail", () => {
+		expect(Utility.userEmail("deepsaha9@gmail.com")).to.be.true
 	})
-	it("should return false for  nameEntryLast", () => {
-		expect(Utility.nameEntryLast("saha")).to.be.false
+	it("should return false for  userEmail", () => {
+		expect(Utility.userEmail("Deepsaha9gmail.com")).to.be.false
 	})
 })

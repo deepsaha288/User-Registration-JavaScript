@@ -66,12 +66,12 @@ class UserRegistration {
     /**
      * method for entry of user email 
      */
-    userEmail = () => {
+    userEmail = (email) => {
         try {
-            let email = readlineSync.question("Enter your Email id: ");
+            //let email = readlineSync.question("Enter your Email id: ");
             const emailPattern = this.REGEX_EMAIL.exec(email);
             if (emailPattern) {
-                this.checkValidation(emailPattern);
+                return this.checkValidation(emailPattern);
             }
             else {
                 this.userEmail();
