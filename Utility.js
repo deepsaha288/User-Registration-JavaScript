@@ -66,12 +66,12 @@ class UserRegistration {
     /**
      * method for entry of user email 
      */
-    userEmail = () => {
+    userEmail = (email) => {
         try {
-            let email = readlineSync.question("Enter your Email id: ");
+            //let email = readlineSync.question("Enter your Email id: ");
             const emailPattern = this.REGEX_EMAIL.exec(email);
             if (emailPattern) {
-                this.checkValidation(emailPattern);
+                return this.checkValidation(emailPattern);
             }
             else {
                 this.userEmail();
@@ -84,12 +84,12 @@ class UserRegistration {
     /**
      * me+thod for entry of user phone number
      */
-    userPhoneNumber = () => {
+    userPhoneNumber = (phoneNumber) => {
         try {
-            let phoneNumber = readlineSync.question("Enter your Phone number: ");
+            //let phoneNumber = readlineSync.question("Enter your Phone number: ");
             const phonePattern = this.REGEX_PHONE_NUMBER.exec(phoneNumber);
             if (phonePattern) {
-                this.checkValidation(phoneNumber);
+                return this.checkValidation(phoneNumber);
             }
             else {
                 this.userPhoneNumber();
@@ -102,12 +102,12 @@ class UserRegistration {
     /**
      * method for user entry of password
      */
-    userPassword = () => {
+    userPassword = (password) => {
         try {
-            let password = readlineSync.question("Enter your Password: ");
+            //let password = readlineSync.question("Enter your Password: ");
             const passwordPattern = this.REGEX_PASSWORD.exec(password);
             if (passwordPattern) {
-                this.checkValidation(password);
+                return this.checkValidation(password);
             }
             else {
                 this.userPassword();
